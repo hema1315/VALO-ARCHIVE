@@ -4,7 +4,7 @@ import AboutPrev from "../../components/about/AboutPrev";
 import AgentsPreview from "../../components/agentsPreview/AgentsPreview";
 import WeaponsPreview from "../../components/weaponsPreview/WeaponsPreview";
 import MapsPreview from "../../components/mapsPreview/MapsPreview";
-import GameModesPreview from "../../components/GamemodesPreview/Gamemodespreview";
+import GameModesPreview from "../../components/GamemodesPreview/GameModesPreview";
 import TiersCollectionsPreview from "../../components/TiersCollectionsPreview/TiersCollectionsPreview";
 
 const ROLES = [
