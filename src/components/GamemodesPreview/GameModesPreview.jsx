@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getGameModes } from "../../services/Gamemodesapi";
 
-import "./gameModesPreview.css";
+import "./Gamemodespreview.css";
 import GameModeCard from "../gamemodeCard/GameModeCard";
 
 const FEATURED_GAME_MODE_NAMES = ["Standard", "Deathmatch", "Swiftplay"];
