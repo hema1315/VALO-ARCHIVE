@@ -1,0 +1,225 @@
+.gamemodes-preview {
+  position: relative;
+  padding: 40px 80px 100px;
+}
+
+.gamemodes-preview-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.gamemodes-preview-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--text-secondary);
+}
+
+.gamemodes-preview-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px 1px rgba(255, 70, 85, 0.6);
+  animation: gamemodesDotPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes gamemodesDotPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.gamemodes-preview-heading {
+  margin-top: 10px;
+  font-size: 34px;
+  color: var(--text-main);
+}
+
+.gamemodes-preview-accent {
+  color: var(--accent);
+}
+
+.gamemodes-preview-subtext {
+  font-family: "Inter", sans-serif;
+  text-transform: none;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  max-width: 380px;
+}
+
+.gamemodes-preview-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 6px;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+.gamemodes-preview-cta::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--border);
+  transition: background-color 0.3s ease;
+}
+
+.gamemodes-preview-cta:hover::after {
+  background: var(--accent);
+}
+
+.gamemodes-preview-cta svg {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.gamemodes-preview-cta:hover svg {
+  transform: translateX(5px);
+  color: var(--accent);
+}
+
+.gamemodes-preview-cta:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.gamemodes-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.gamemode-card-wrapper {
+  opacity: 0;
+  perspective: 700px;
+  animation: gamemodeCardIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: calc(var(--i) * 0.09s);
+}
+
+@keyframes gamemodeCardIn {
+  from {
+    opacity: 0;
+    transform: rotateX(-16deg) translateY(12px);
+    transform-origin: top center;
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0deg) translateY(0);
+    transform-origin: top center;
+  }
+}
+
+.gamemodes-preview-error {
+  font-family: "Inter", sans-serif;
+  text-transform: none;
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding: 32px 0;
+  text-align: center;
+}
+
+.gamemode-skeleton {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+}
+
+.gamemode-skeleton-plate {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(
+    100deg,
+    var(--bg-main) 30%,
+    #2a343d 50%,
+    var(--bg-main) 70%
+  );
+  background-size: 200% 100%;
+  animation: gamemodeSkeletonShimmer 1.4s ease-in-out infinite;
+  border: 1px solid var(--border);
+}
+
+.gamemode-skeleton-line {
+  flex: 1;
+  height: 10px;
+  background: var(--bg-main);
+  animation: gamemodeSkeletonShimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes gamemodeSkeletonShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .gamemodes-preview {
+    padding: 32px 40px 80px;
+  }
+  .gamemodes-preview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .gamemodes-preview-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .gamemodes-preview-heading {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 560px) {
+  .gamemodes-preview {
+    padding: 28px 20px 60px;
+  }
+  .gamemodes-preview-grid {
+    grid-template-columns: 1fr;
+  }
+  .gamemodes-preview-heading {
+    font-size: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gamemodes-preview-dot,
+  .gamemode-card-wrapper,
+  .gamemode-skeleton-plate,
+  .gamemode-skeleton-line {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

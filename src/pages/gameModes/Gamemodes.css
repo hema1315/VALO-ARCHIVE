@@ -1,0 +1,322 @@
+.gamemodes-page {
+  position: relative;
+  padding: 112px 80px 100px;
+}
+
+.gamemodes-page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.gamemodes-page-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--text-secondary);
+}
+
+.gamemodes-page-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px 1px rgba(255, 70, 85, 0.6);
+  animation: gamemodesDotPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes gamemodesDotPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.gamemodes-page-heading {
+  margin-top: 10px;
+  font-size: 34px;
+  color: var(--text-main);
+}
+
+.gamemodes-page-accent {
+  color: var(--accent);
+}
+
+.gamemodes-page-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.gm-card-wrapper {
+  opacity: 0;
+  animation: gmCardIn 0.5s ease-out forwards;
+  animation-delay: calc(var(--i) * 0.07s);
+}
+
+@keyframes gmCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gm-card {
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  padding: 18px;
+  transition: border-color 0.25s ease;
+}
+
+.gm-card:hover {
+  border-color: var(--accent-dark);
+}
+
+.gm-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.gm-card-icon-plate {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-main);
+  border: 1px solid var(--border);
+}
+
+.gm-card-icon-plate img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.gm-card-heading {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.gm-card-name {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gm-card-duration {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+}
+
+.gm-card-description {
+  margin-top: 14px;
+  font-family: "Inter", sans-serif;
+  text-transform: none;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.gm-card-tags {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 20px;
+}
+
+.gm-card-tag {
+  font-family: "Inter", sans-serif;
+  text-transform: none;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.gm-card-tag b {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.gamemodes-page-error {
+  font-family: "Inter", sans-serif;
+  text-transform: none;
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding: 32px 0;
+  text-align: center;
+}
+
+.gamemodes-page-skeleton {
+  height: 150px;
+  background: linear-gradient(
+    100deg,
+    var(--bg-secondary) 30%,
+    #2a343d 50%,
+    var(--bg-secondary) 70%
+  );
+  background-size: 200% 100%;
+  animation: gamemodesPageShimmer 1.4s ease-in-out infinite;
+  border: 1px solid var(--border);
+}
+
+@keyframes gamemodesPageShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.gamemodes-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 60px;
+}
+
+.pagination-btn {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(255, 70, 85, 0.05);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pagination-numbers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination-num:hover {
+  color: var(--text-main);
+  border-color: var(--border);
+}
+
+.pagination-num.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+  .gamemodes-page {
+    padding: 104px 40px 80px;
+  }
+  .gamemodes-page-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .gamemodes-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .gamemodes-page-heading {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 560px) {
+  .gamemodes-page {
+    padding: 100px 20px 60px;
+  }
+  .gamemodes-page-grid {
+    grid-template-columns: 1fr;
+  }
+  .gamemodes-page-heading {
+    font-size: 24px;
+  }
+  .gm-card {
+    padding: 14px;
+  }
+  .gm-card-name {
+    font-size: 14px;
+  }
+  .gamemodes-pagination {
+    gap: 8px;
+  }
+  .pagination-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .pagination-num {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gamemodes-page-dot,
+  .gm-card-wrapper,
+  .gamemodes-page-skeleton {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

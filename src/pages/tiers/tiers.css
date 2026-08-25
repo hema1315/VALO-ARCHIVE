@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+.tiers-page {
+  padding: 40px 80px 100px;
+  background-color: var(--bg-main);
+  min-height: 100vh;
+}
+
+.tiers-header {
+  margin-bottom: 12px;
+}
+
+.tiers-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--accent);
+}
+
+.tiers-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px 2px rgba(255, 70, 85, 0.6);
+  animation: dotPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.tiers-heading {
+  font-size: 42px;
+  margin-top: 10px;
+  color: var(--text-main);
+}
+
+.tiers-accent {
+  color: var(--accent);
+}
+
+.tiers-subtext {
+  margin-top: 8px;
+  font-family: "Inter", sans-serif;
+  text-transform: none;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.tiers-loading {
+  position: relative;
+  height: 300px;
+  margin-top: 40px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tiers-loading p {
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 2px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.tiers-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 12px 2px rgba(255, 70, 85, 0.6);
+  animation: scanMove 1.6s linear infinite;
+}
+
+@keyframes scanMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(300px); }
+}
+
+.tiers-error {
+  margin-top: 40px;
+  font-family: "Inter", sans-serif;
+  text-transform: none;
+  color: var(--text-secondary);
+}
+
+.pyramid {
+  display: flex;
+  flex-direction: column-reverse; 
+  align-items: center;
+  gap: 10px;
+  margin-top: 56px;
+}
+
+.pyramid-row {
+  width: var(--w);
+  min-width: 280px;
+  opacity: 0;
+  animation: rowRise 0.45s ease-out forwards;
+}
+
+@keyframes rowRise {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.pyramid-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 24px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.015);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.pyramid-bar:hover {
+  border-color: var(--accent-dark);
+  background: rgba(255, 70, 85, 0.03);
+}
+
+.row-label {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+.row-divisions {
+  display: flex;
+  gap: 8px;
+}
+
+.division-chip {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.division-chip:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.division-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.pyramid-row.is-radiant .pyramid-bar {
+  border-color: var(--accent);
+  background: rgba(255, 70, 85, 0.08);
+  box-shadow: 0 0 24px -4px rgba(255, 70, 85, 0.4);
+}
+
+.pyramid-row.is-radiant .row-label {
+  color: var(--accent);
+}
+
+.pyramid-row.is-radiant .division-chip {
+  border-color: var(--accent-dark);
+}
+
+.pyramid-row.is-radiant .division-icon {
+  filter: drop-shadow(0 0 6px rgba(255, 70, 85, 0.5));
+}
+
+/* ============ TABLET ============ */
+@media (max-width: 900px) {
+  .tiers-page { padding: 32px 24px 80px; }
+
+  .pyramid-row {
+    width: 100% !important;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .tiers-heading { font-size: 28px; }
+
+  .pyramid-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+  }
+
+  .division-chip { width: 38px; height: 38px; }
+  .division-icon { width: 24px; height: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tiers-dot,
+  .tiers-scanline,
+  .pyramid-row {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+} 
