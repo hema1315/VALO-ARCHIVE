@@ -10,7 +10,7 @@
   position: relative;
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  background: var(--bg-secondary);
+
   border: 1px solid var(--border);
   transition: border-color 0.35s ease;
 }
@@ -45,7 +45,6 @@
   object-fit: cover;
   padding: 15px;
   object-position: top center;
-  filter: grayscale(55%) contrast(1.05);
   transform: scale(1.02);
   transition:
     transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
